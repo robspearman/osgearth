@@ -82,7 +82,7 @@ TileDrawable::setElevationRaster(const osg::Image*   image,
     if (osg::equivalent(0.0f, _elevationScaleBias(0,0)) ||
         osg::equivalent(0.0f, _elevationScaleBias(1,1)))
     {
-        OE_WARN << "("<<_key.str()<<") precision error\n";
+        OE_DEBUG << "("<<_key.str()<<") precision error\n";
     }
     
     const osg::Vec3Array& verts = *static_cast<osg::Vec3Array*>(_geom->getVertexArray());
@@ -104,7 +104,7 @@ TileDrawable::setElevationRaster(const osg::Image*   image,
 
         if ( osg::equivalent(scaleU, 0.0f) || osg::equivalent(scaleV, 0.0f) )
         {
-            OE_WARN << LC << "Precision loss in tile " << _key.str() << "\n";
+            OE_DEBUG << LC << "Precision loss in tile " << _key.str() << "\n";
         }
     
         for(int t=0; t<_tileSize; ++t)
